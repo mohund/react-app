@@ -6,16 +6,16 @@ const apiUrl = 'http://localhost:3000/api';
 function Update() {
   const [id, setId] = useState('');
   const [title, setTitle] = useState('');
-  const [url, setUrl] = useState('');
+  const [Link, setLink] = useState('');
 
   const handleUpdate = async (e) => {
     e.preventDefault();
-    if (id && title.trim() && url.trim()) {
+    if (id && title.trim() && Link.trim()) {
       try {
         const options = {
           method: 'PUT',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ id, title, url }),
+          body: JSON.stringify({ id, title, Link }),
         };
         await fetch(`${apiUrl}/update.php`, options);
         alert('Bookmark updated successfully!');
@@ -44,8 +44,8 @@ function Update() {
         <input
           type="url"
           placeholder="Enter New URL"
-          value={url}
-          onChange={(e) => setUrl(e.target.value)}
+          value={Link}
+          onChange={(e) => setLink(e.target.value)}
         />
         <button type="submit">Update Bookmark</button>
       </form>

@@ -26,8 +26,8 @@ function ReadAll() {
       <ul>
         {bookmarks.map((bookmark) => (
           <li key={bookmark.id}>
-            <a href={bookmark.url} target="_blank" rel="noopener noreferrer">
-              {bookmark.title}
+            <a href={bookmark.link} target="_blank" rel="noopener noreferrer">
+           <span > ID : {bookmark.id}   Title :</span>{bookmark.title}
             </a>
           </li>
         ))}

@@ -1,28 +1,36 @@
 import React, { useState } from 'react';
 import './create.css';
-
 const apiUrl = 'http://localhost:3000/api';
 
 function Create() {
   const [title, setTitle] = useState('');
-  const [url, setUrl] = useState('');
+  const [link, setLink] = useState(''); // تغيير من url إلى link
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (title.trim() && url.trim()) {
+    if (title.trim() && link.trim()) {
       try {
         const options = {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ title, url }),
+          body: JSON.stringify({ title, link }), // تغيير من url إلى link
         };
-        await fetch(`${apiUrl}/create.php`, options);
-        alert('Bookmark created successfully!');
-        setTitle('');
-        setUrl('');
+        const response = await fetch(`${apiUrl}/create.php`, options);
+
+        if (response.ok) {
+          alert('Bookmark created successfully!');
+          setTitle('');
+          setLink('');
+        } else {
+          const errorData = await response.json();
+          alert(`Error: ${errorData.message}`);
+        }
       } catch (error) {
         console.error('Error creating bookmark:', error);
+        alert('An error occurred while creating the bookmark.');
       }
+    } else {
+      alert('Please fill in all fields.');
     }
   };
 
@@ -39,12 +47,13 @@ function Create() {
         <input
           type="url"
           placeholder="Enter URL"
-          value={url}
-          onChange={(e) => setUrl(e.target.value)}
+          value={link}
+          onChange={(e) => setLink(e.target.value)} // تغيير من url إلى link
         />
         <button type="submit">Add Bookmark</button>
       </form>
-    </div>
+      
+        </div>
   );
 }
 

@@ -25,13 +25,11 @@
   background-color: #f9f9f9;
   border-radius: 5px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center; 
 }
 
-.readAll-container li a {
-  text-decoration: none;
-  color: #007bff;
-}
-
-.readAll-container li a:hover {
-  text-decoration: underline;
+.readAll-container li span {
+  font-weight: extra-bold;
+  ;  
 }

@@ -7,7 +7,6 @@ function MainPage() {
 
   return (
     <div className="main-container">
-      <h1>Bookmark Manager</h1>
       <div className="button-container">
         <button onClick={() => navigate('/create')}>Create Bookmark</button>
         <button onClick={() => navigate('/read-all')}>View All Bookmarks</button>

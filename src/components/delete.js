@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './delete.css';
-
+import ReadAll from './readAll';
 const apiUrl = 'http://localhost:3000/api';
 
 function Delete() {
@@ -29,7 +29,10 @@ function Delete() {
         value={id}
         onChange={(e) => setId(e.target.value)}
       />
+      <br />
       <button onClick={handleDelete}>Delete Bookmark</button>
+
+      <ReadAll/>
     </div>
   );
 }
