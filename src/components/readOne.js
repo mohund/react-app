@@ -29,9 +29,8 @@ function ReadOne() {
       <button onClick={fetchBookmark}>Search</button>
       {bookmark && (
         <div className="bookmark-details">
+          <a href={bookmark.link} target="_blank" rel="noopener noreferrer">
           <h3>{bookmark.title}</h3>
-          <a href={bookmark.url} target="_blank" rel="noopener noreferrer">
-            {bookmark.url}
           </a>
         </div>
       )}
